@@ -14,11 +14,11 @@ class CreateProveedorsTable extends Migration
     public function up()
     {
         Schema::create('proveedores', function (Blueprint $table) {
-            $table->bigIncrements('idproveedor');
+            $table->id();
             $table->string('nombre',50)->unique();
             $table->string('email',100)->unique();
             $table->string('dpi',15)->unique()->nullable();
-            $table->string('direccion',75)->nullable();
+            $table->string('direccion',125)->nullable();
             $table->string('telefono',12)->unique();
             $table->timestamps();
         });

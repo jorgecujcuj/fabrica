@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
-use App\Http\Requests\Proveedor\StoreProveedorRequest;
-use App\Http\Requests\Proveedor\UpdateProveedorRequest;
+
+use App\Http\Requests\Proveedor\ProveedorCreateRequest;
+use App\Http\Requests\Proveedor\ProveedorEditRequest;
 
 class ProveedorController extends Controller
 {
@@ -28,10 +29,10 @@ class ProveedorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\ProveedorCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProveedorRequest $request)
+    public function store(ProveedorCreateRequest $request)
     {
         Proveedor::create($request->all());
         return redirect()->route('proveedores.index');
@@ -56,19 +57,22 @@ class ProveedorController extends Controller
      */
     public function edit(Proveedor $proveedor)
     {
-        return view('admin.proveedor.update', compact('proveedor'));
+        return view('admin.proveedor.edit', compact('proveedor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\ProveedorEditRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProveedorRequest $request, Proveedor $proveedor)
+    public function update(ProveedorEditRequest $request, Proveedor $proveedor)
     {
-        $proveedor->update($request->all());
+        $data = $request->only('nombre','email','dpi','direccion','telefono');
+
+        $proveedor->update($data);
+        //$proveedor->update($request->all());
         return redirect()->route('proveedores.index');
     }
 

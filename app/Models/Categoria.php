@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $primaryKey = 'idcategoria';
+
+    protected $primaryKey = 'id';
 
     /**
      * Atributos que deberían ser asignables en masa.

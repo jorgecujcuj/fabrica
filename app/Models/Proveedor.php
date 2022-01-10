@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proveedor extends Model
 {
-    protected $primaryKey = 'idproveedor';
+    protected $table = 'proveedores';
+    protected $primaryKey = 'id';
 
     /**
      * Atributos que deberían ser asignables en masa.

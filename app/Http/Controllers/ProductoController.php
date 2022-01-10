@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Proveedor;
-use App\Http\Requests\StoreProductoRequest;
-use App\Http\Requests\UpdateProductoRequest;
+use App\Http\Requests\Producto\StoreProductoRequest;
+use App\Http\Requests\Producto\UpdateProductoRequest;
 
 class ProductoController extends Controller
 {

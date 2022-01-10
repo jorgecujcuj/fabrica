@@ -62,7 +62,7 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-        return view('admin.categoria.update', compact('categoria'));
+        return view('admin.categoria.edit', compact('categoria'));
     }
 
     /**
@@ -74,7 +74,12 @@ class CategoriaController extends Controller
      */
     public function update(CategoriaEditRequest $request, Categoria $categoria)
     {
-        $categoria->update($request->all());
+        $data = $request->only('nombre','descripcion');
+
+        $categoria->update($data);
+
+        /*$categoria->update($request->all());*/
+
         return redirect()->route('categorias.index');
     }
 

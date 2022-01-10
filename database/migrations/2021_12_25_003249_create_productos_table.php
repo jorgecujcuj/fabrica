@@ -14,17 +14,17 @@ class CreateProductosTable extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->bigIncrements('idproducto');
+            $table->id();
             $table->string('codigo',20)->unique();
             $table->string('nombre',50)->unique();
             $table->integer('stock');
             $table->string('imagen',50);
             $table->decimal('precio1',12,2);
-            $table->enum('status',['ACTIVO','DESACTIVADO'])->default('ACTIVE');
+            $table->enum('status',['ACTIVO','DESACTIVADO'])->default('ACTIVO');
             $table->unsignedBigInteger('idcategoria');
-            $table->foreign('idcategoria')->references('idcategoria')->on('categorias');
+            $table->foreign('idcategoria')->references('id')->on('categorias');
             $table->unsignedBigInteger('idproveedor');
-            $table->foreign('idproveedor')->references('idproveedor')->on('proveedores');
+            $table->foreign('idproveedor')->references('id')->on('proveedores');
             $table->timestamps();
         });
     }

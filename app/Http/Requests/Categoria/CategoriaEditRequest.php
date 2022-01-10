@@ -4,6 +4,7 @@ namespace App\Http\Requests\Categoria;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class CategoriaEditRequest extends FormRequest
 {
     /**
@@ -24,7 +25,7 @@ class CategoriaEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required','unique:categorias,nombre' . $this->route('categoria')->idcategoria,'max:50'],
+            'nombre'   =>   ['required','max:50','unique:categorias,nombre,' . $this->route('categoria')->id],
             'descripcion' => ['nullable','max:100'],
         ];
     }

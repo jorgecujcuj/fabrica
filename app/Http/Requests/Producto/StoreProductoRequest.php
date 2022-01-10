@@ -24,7 +24,7 @@ class StoreProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required','unique:producto,nombre','max:50'],
+            'nombre' => ['required','unique:productos,nombre','max:50'],
             'image' => ['required','image','dimensions:min_width=100,min_height=200'],
             'precio1' => ['required'],
             'idcategoria' => ['required','integer','exists:App\Categoria,idcategoria'],
