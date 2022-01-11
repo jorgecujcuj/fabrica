@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
-    
-    protected $primaryKey = 'idventa';
+
+    protected $primaryKey = 'id';
 
     /**
      * Atributos que deberían ser asignables en masa.
@@ -30,7 +30,7 @@ class Venta extends Model
     public function cliente(){
         return $this->belongsTo(Cliente::class);
     }
-    
+
     public function detallesventa(){
         return $this->hasMany(DetallesVenta::class);
     }

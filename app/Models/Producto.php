@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
-    
-    protected $primaryKey = 'idproducto';
+
+    protected $primaryKey = 'id';
 
     /**
      * Atributos que deberían ser asignables en masa.
@@ -23,11 +23,11 @@ class Producto extends Model
         'precio1',
         'status',
         'idcategoria',
-        'idproveedor'
+        'idproveedor',
     ];
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo('App\Models\Categoria','idcategoria','id');
     }
 
     public function proveedor(){

@@ -17,7 +17,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('codigo',20)->unique();
             $table->string('nombre',50)->unique();
-            $table->integer('stock');
+            $table->integer('stock')->default(0);
             $table->string('imagen',50);
             $table->decimal('precio1',12,2);
             $table->enum('status',['ACTIVO','DESACTIVADO'])->default('ACTIVO');

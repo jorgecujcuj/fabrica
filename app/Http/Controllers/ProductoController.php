@@ -42,7 +42,16 @@ class ProductoController extends Controller
      */
     public function store(StoreProductoRequest $request)
     {
-        Producto::create($request->all());
+
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $img = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/image"),$img);
+        }
+
+        $producto = Producto::create($request->all()+[
+            'imagen' =>$img,
+        ]);
 
         return redirect()->route('productos.index');
     }

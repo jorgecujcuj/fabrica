@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetallesCompra extends Model
 {
 
-    protected $primaryKey = 'iddetallecompra';
+    protected $primaryKey = 'id';
 
     /**
      * Atributos que deberían ser asignables en masa.

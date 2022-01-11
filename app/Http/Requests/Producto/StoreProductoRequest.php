@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Producto;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,11 +24,12 @@ class StoreProductoRequest extends FormRequest
     public function rules()
     {
         return [
+            'codigo' => ['required','unique:productos,codigo','max:50'],
             'nombre' => ['required','unique:productos,nombre','max:50'],
-            'image' => ['required','image','dimensions:min_width=100,min_height=200'],
-            'precio1' => ['required'],
-            'idcategoria' => ['required','integer','exists:App\Categoria,idcategoria'],
-            'idproveedor' => ['required','integer','exists:App\Proveedor,idproveedor'],
+            /*'image' => ['required','image','mimes:jpeg,png,jpg,gif','max:2048','dimensions:width=500,height=500'],*/
+            'precio1' => ['required','numeric','regex:/^[\d]{0,11}(\.[\d]{1,2})?$/'],
+            'idcategoria' => ['required','integer','exists:App\Models\Categoria,id'],
+            'idproveedor' => ['required','integer','exists:App\Models\Proveedor,id'],
         ];
     }
 }
