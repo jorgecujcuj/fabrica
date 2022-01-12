@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Cliente;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,11 +24,11 @@ class UpdateClienteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required','string','unique:clientes,nombre' . $this->route('cliente')->idcliente,'max:75'],
-            'nit' => ['required','unique:clientes,nit'. $this->route('cliente')->idcliente],
+            'nombre' => ['required','string','unique:clientes,nombre,' . $this->route('cliente')->id,'max:75'],
+            'nit' => ['required','unique:clientes,nit,'. $this->route('cliente')->id],
             'direccion' => ['nullable','max:125'],
-            'telefono' => ['nullable','numeric','min:8','max:12'],
-            'email' => ['nullable','email:rfc,dns','unique:clientes,email' . $this->route('cliente')->idcliente, 'max:100']
+            'telefono' => ['nullable','numeric','digits:8'],
+            'email' => ['nullable','email:rfc,dns','unique:clientes,email,' . $this->route('cliente')->id, 'max:100']
         ];
     }
 }

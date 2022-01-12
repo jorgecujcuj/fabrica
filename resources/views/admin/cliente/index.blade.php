@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Gestion de productos')
+@section('title','Gestion de clientes')
 
 @section('styles')
 <style type="text/css">
@@ -15,12 +15,12 @@
 <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-            Productos
+            Clientes
         </h3>
         <nav arial-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Productos</li>
+                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
             </ol>
         </nav>
     </div>
@@ -30,13 +30,13 @@
                 <div class="card-body">
 
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Productos</h4>
+                        <h4 class="card-title">Clientes</h4>
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="{{route('productos.create')}}" class="dropdown-item">Agregar</a>
+                                    <a href="{{route('clientes.create')}}" class="dropdown-item">Agregar</a>
                                 </div>
                             </div>
 
@@ -49,29 +49,31 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Stock</th>
-                                    <th>Status</th>
-                                    <th>Categoria</th>
+                                    <th>Nit</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
+                                    <th>Email</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($productos as $producto)
+                                @foreach ($clientes as $cliente)
                                 <tr>
-                                    <th scope="row">{{$producto->id}}</th>
+                                    <th scope="row">{{$cliente->id}}</th>
                                     <td>
-                                        <a href="{{route('productos.show',$producto)}}">
-                                            {{$producto->nombre}}</a>
+                                        <a href="{{route('clientes.show',$cliente)}}">
+                                            {{$cliente->nombre}}</a>
                                     </td>
-                                    <td>{{$producto->stock}}</td>
-                                    <td>{{$producto->status}}</td>
-                                    <td>{{$producto->categoria->nombre}}</td>
+                                    <td>{{$cliente->nit}}</td>
+                                    <td>{{$cliente->direccion}}</td>
+                                    <td>{{$cliente->telefono}}</td>
+                                    <td>{{$cliente->email}}</td>
                                     <td style="width: 50px;">
-                                        {!! Form::open(['route'=>['productos.destroy',
-                                        $producto],'method'=>'DELETE']) !!}
+                                        {!! Form::open(['route'=>['clientes.destroy',
+                                        $cliente],'method'=>'DELETE']) !!}
 
                                         <a class="jsgrid-button jsgrid-edit-button" href="
-                                        {{route('productos.edit',$producto)}}"
+                                        {{route('clientes.edit',$cliente)}}"
                                         title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>

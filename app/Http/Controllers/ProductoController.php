@@ -43,8 +43,8 @@ class ProductoController extends Controller
     public function store(StoreProductoRequest $request)
     {
 
-        if($request->hasFile('imagen')){
-            $file = $request->file('imagen');
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
             $img = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/image"),$img);
         }
@@ -77,7 +77,7 @@ class ProductoController extends Controller
     {
         $categorias = Categoria::get();
         $proveedores = Proveedor::get();
-        return view('admin.producto.update', compact('producto','categorias','proveedores'));
+        return view('admin.producto.edit', compact('producto','categorias','proveedores'));
     }
 
     /**
@@ -89,7 +89,17 @@ class ProductoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
     {
-        $producto->update($request->all());
+
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+            $img = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/image"),$img);
+        }
+
+        $producto->update($request->all()+[
+            'imagen' =>$img,
+        ]);
+
         return redirect()->route('productos.index');
     }
 

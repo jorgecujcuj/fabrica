@@ -8,7 +8,7 @@ use App\Http\Requests\Cliente\UpdateClienteRequest;
 
 class ClienteController extends Controller
 {
-    
+
      /**
      * Display a listing of the resource.
      *
@@ -62,7 +62,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        return view('admin.cliente.update', compact('cliente'));
+        return view('admin.cliente.edit', compact('cliente'));
     }
 
     /**

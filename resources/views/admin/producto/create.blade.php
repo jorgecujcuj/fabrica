@@ -92,15 +92,20 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label for="imagen">{{ __("Adjuntar imagen") }}</label>
-                            <input id="imagen" type="file" accept="image/*" class="form-control-file @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}" placeholder="img" autofocus>
+                    <div class="card-body">
+                        <h4 class="card-title d-flex">Imagen de producto
+                            <small class="ml-auto align-self-and">
+                                <a href="dropify.html" class="font-weight-linght"
+                                target="_blank">Seleccionar Archivo</a>
+                            </small>
+                        </h4>
+                        <input type="file" name="foto" id="foto" class="dropify @error('imagen') is-invalid @enderror"/>
 
-                            @error('imagen')
-                                <span class="invalid-feedback" role="alert" style="color: #FFFFFF; background-color: #046ce5; border:none;">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        @error('imagen')
+                            <span class="invalid-feedback" role="alert" style="color: #FFFFFF; background-color: #046ce5; border:none;">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Registrar</button>

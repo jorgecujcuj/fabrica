@@ -23,6 +23,6 @@ class Proveedor extends Model
     ];
 
     public function productos(){
-        return $this->hasMany(Producto::class);
+        return $this->hasMany('App\Models\Producto','id','idproducto');
     }
 }

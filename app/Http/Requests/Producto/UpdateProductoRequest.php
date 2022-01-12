@@ -24,11 +24,11 @@ class UpdateProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required','unique:productos,nombre' . $this->route('producto')->idproducto,'max:50'],
-            'image' => ['required','image','dimensions:min_width=100,min_height=200'],
+            'nombre' => ['required','unique:productos,nombre,' . $this->route('producto')->id,'max:50'],
+            /*'image' => ['required','image','dimensions:min_width=100,min_height=200'],*/
             'precio1' => ['required'],
-            'idcategoria' => ['required','integer','exists:App\Categoria,idcategoria'],
-            'idproveedor' => ['required','integer','exists:App\Proveedor,idproveedor'],
+            'idcategoria' => ['required','integer','exists:App\Models\Categoria,id'],
+            'idproveedor' => ['required','integer','exists:App\Models\Proveedor,id'],
         ];
     }
 }
