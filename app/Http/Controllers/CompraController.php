@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Compra;
 use App\Models\Proveedor;
+use App\Models\Producto;
 use App\Http\Requests\Compra\StoreCompraRequest;
 use App\Http\Requests\Compra\UpdateCompraRequest;
 
@@ -30,7 +31,8 @@ class CompraController extends Controller
     public function create()
     {
         $proveedores = Proveedor::get();
-        return view('admin.compra.create', compact('proveedores'));
+        $productos = Producto::get();
+        return view('admin.compra.create', compact('proveedores','productos'));
     }
 
     /**

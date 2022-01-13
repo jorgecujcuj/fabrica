@@ -2,7 +2,7 @@
 @section('title','Registrar cliente')
 
 @section('styles')
-{!! Html::style('boots3/bootstrap.min.css') !!}
+{{-- {!! Html::style('boots3/bootstrap.min.css') !!} --}}
 @endsection
 
 @section('content')
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                                 <div class="form-group has-feedback">
                                     <label for="nit" class="control-label">Nit:</label>
-                                    <input type="text" class="form-control @error('nit') is-invalid @enderror" name="nit" id="nit" placeholder="Ingrese Nit" />
+                                    <input type="text" class="form-control @error('nit') is-invalid @enderror" name="nit" id="nit" placeholder="Ingrese Nit" required/>
                                     <span class="glyphicon form-control-feedback"></span>
 
                                     @error('nit')
@@ -59,8 +59,8 @@
 
                     <div class="form-group">
                         <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion" value="{{ old('direccion') }}" aria-describedby="helpId" placeholder="Dirección" required>
-
+                        <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion" value="{{ old('direccion') }}" aria-describedby="helpId" placeholder="Dirección">
+                        <small id="helpId" class="form-text text-muted">Este Campo es opcional</small>
                         @error('direccion')
                             <span class="invalid-feedback" role="alert" style="color: #FFFFFF; background-color: #046ce5; border:none;">
                                 <strong>{{ $message }}</strong>
@@ -70,7 +70,8 @@
 
                     <div class="form-group">
                         <label for="telefono">Número de contacto</label>
-                        <input type="number" class="form-control @error('telefono') is-invalid @enderror" name="telefono" id="telefono" value="{{ old('telefono') }}" aria-describedby="helpId" placeholder="Número de contacto" required>
+                        <input type="number" class="form-control @error('telefono') is-invalid @enderror" name="telefono" id="telefono" value="{{ old('telefono') }}" aria-describedby="helpId" placeholder="Número de contacto">
+                        <small id="helpId" class="form-text text-muted">Este Campo es opcional</small>
 
                         @error('telefono')
                             <span class="invalid-feedback" role="alert" style="color: #FFFFFF; background-color: #046ce5; border:none;">
@@ -81,7 +82,8 @@
 
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" aria-describedby="emailHelpId" placeholder="ejemplo@gamil.com" required>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" aria-describedby="emailHelpId" placeholder="ejemplo@gamil.com">
+                        <small id="helpId" class="form-text text-muted">Este Campo es opcional</small>
 
                           @error('email')
                               <span class="invalid-feedback" role="alert" style="color: #FFFFFF; background-color: #046ce5; border:none;">
@@ -102,7 +104,7 @@
 @endsection
 
 @section('scripts')
-{!! Html::script('boots3/bootstrap.min.js') !!}
+{{-- {!! Html::script('boots3/bootstrap.min.js') !!} --}}
 
 <script type="text/javascript">
 	function nitIsValid(nit) {

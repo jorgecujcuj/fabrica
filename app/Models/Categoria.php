@@ -14,7 +14,10 @@ class Categoria extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','descripcion'];
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+    ];
 
     public function producto(){
         return $this->hasMany('App\Models\Producto','id','idproducto');

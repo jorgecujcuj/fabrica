@@ -20,7 +20,7 @@ class Compra extends Model
         'inpuesto',
         'total',
         'status',
-        'imagen'
+        'imagen',
     ];
 
     public function user(){

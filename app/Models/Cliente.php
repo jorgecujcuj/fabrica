@@ -18,7 +18,7 @@ class Cliente extends Model
         'nit',
         'direccion',
         'telefono',
-        'email'
+        'email',
     ];
 
 }

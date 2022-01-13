@@ -19,7 +19,7 @@ class Proveedor extends Model
         'email',
         'dpi',
         'direccion',
-        'telefono'
+        'telefono',
     ];
 
     public function productos(){
