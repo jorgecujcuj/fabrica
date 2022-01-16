@@ -24,15 +24,15 @@ class Compra extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\Models\User','iduser','id');
     }
 
     public function proveedor(){
-        return $this->belongsTo(Proveedor::class);
+        return $this->belongsTo('App\Models\Proveedor','idproveedor','id');
     }
 
     public function detallesCompra(){
-        return $this->hasMany(DetallesCompra::class);
+        return $this->hasMany('App\Models\DetallesCompra','id','idcompra');
     }
 
 }

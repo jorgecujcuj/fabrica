@@ -34,3 +34,7 @@ Route::resource('clientes',ClienteController::class)->parameters(['clientes' => 
 Route::resource('productos',ProductoController::class)->parameters(['productos' => 'producto'])->names('productos');
 Route::resource('compras',CompraController::class)->parameters(['compras' => 'compra'])->names('compras');
 Route::resource('ventas',VentaController::class)->parameters(['ventas' => 'venta'])->names('ventas');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

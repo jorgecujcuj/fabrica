@@ -7,9 +7,16 @@ use App\Models\Proveedor;
 use App\Models\Producto;
 use App\Http\Requests\Compra\StoreCompraRequest;
 use App\Http\Requests\Compra\UpdateCompraRequest;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class CompraController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
      /**
      * Display a listing of the resource.
@@ -43,7 +50,11 @@ class CompraController extends Controller
      */
     public function store(StoreCompraRequest $request)
     {
-        $compra = Compra::create($request->all());
+
+        $compra = Compra::create($request->all()+[
+            'iduser' => Auth::user()->id,
+            'fecha_compra' => Carbon::now('America/Guatemala'),
+        ]);
 
         foreach($request->idproducto as $key => $product){
             $resultado[] = array("idproducto"=>$request->idproducto[$key],

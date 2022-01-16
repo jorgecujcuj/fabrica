@@ -22,11 +22,11 @@ class DetallesCompra extends Model
     ];
 
     public function compra(){
-        return $this->belongsTo(Compra::class);
+        return $this->belongsTo('App\Models\Compra','idcompra','id');
     }
 
     public function producto(){
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo('App\Models\Producto','idproducto','id');
     }
 
 }
