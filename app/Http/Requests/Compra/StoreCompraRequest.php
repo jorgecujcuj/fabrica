@@ -24,7 +24,11 @@ class StoreCompraRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'string|required|unique:products|max:255',
+
+            'sell_price'=>'required',
+
+            'code'=>'nullable|string|max:8|min:8',
         ];
     }
 }

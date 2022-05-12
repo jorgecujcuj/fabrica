@@ -9,7 +9,7 @@ use App\Http\Requests\Venta\UpdateVentaRequest;
 
 class VentaController extends Controller
 {
-   
+
      /**
      * Display a listing of the resource.
      *
@@ -39,7 +39,7 @@ class VentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompraRequest $request)
+    public function store(StoreVentaRequest $request)
     {
         $venta = Venta::create($request->all());
 
@@ -84,7 +84,7 @@ class VentaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompraRequest $request, Venta $venta)
+    public function update(UpdateVentaRequest $request, Venta $venta)
     {
         // $venta->update($request->all());
         // return redirect()->route('compras.index');

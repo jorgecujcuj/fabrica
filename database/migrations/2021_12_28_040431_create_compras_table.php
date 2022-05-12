@@ -27,7 +27,7 @@ class CreateComprasTable extends Migration
             $table->decimal('total');
 
             $table->enum('status',['VALIDO','CACELADO'])->default('VALIDO');
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
 
             $table->timestamps();
         });

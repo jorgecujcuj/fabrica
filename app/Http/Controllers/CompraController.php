@@ -6,9 +6,11 @@ use App\Models\Compra;
 use App\Models\Proveedor;
 use App\Models\Producto;
 use App\Http\Requests\Compra\StoreCompraRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\Compra\UpdateCompraRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class CompraController extends Controller
 {
@@ -46,7 +48,7 @@ class CompraController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response    StoreCompraRequest
      */
     public function store(StoreCompraRequest $request)
     {
@@ -63,7 +65,9 @@ class CompraController extends Controller
         }
         $compra->detallesCompra()->createMany($resultado);
 
+
         return redirect()->route('compras.index');
+
     }
 
     /**
